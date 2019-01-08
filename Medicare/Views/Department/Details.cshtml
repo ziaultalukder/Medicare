@@ -1,0 +1,31 @@
+﻿@model Medicare.ViewModel.DepartmentViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Department Details</div>
+    <div class="panel-body">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Images/DepartmentImages/"+ Model.FilePath)" width="150px;" />
+        </dd>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

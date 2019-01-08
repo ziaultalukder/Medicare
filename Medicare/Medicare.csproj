@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C611922E-7B69-43A3-9F9A-6B4B27D0007D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Medicare</RootNamespace>
+    <AssemblyName>Medicare</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812101820413_IdentityAndDepartment.cs" />
+    <Compile Include="Migrations\201812101820413_IdentityAndDepartment.Designer.cs">
+      <DependentUpon>201812101820413_IdentityAndDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812110904475_DoctorAdded.cs" />
+    <Compile Include="Migrations\201812110904475_DoctorAdded.Designer.cs">
+      <DependentUpon>201812110904475_DoctorAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812111126109_UsersTableEdited.cs" />
+    <Compile Include="Migrations\201812111126109_UsersTableEdited.Designer.cs">
+      <DependentUpon>201812111126109_UsersTableEdited.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812111834062_DoctorTableTitlefielAdedd.cs" />
+    <Compile Include="Migrations\201812111834062_DoctorTableTitlefielAdedd.Designer.cs">
+      <DependentUpon>201812111834062_DoctorTableTitlefielAdedd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812121359199_AppoinmentAdded.cs" />
+    <Compile Include="Migrations\201812121359199_AppoinmentAdded.Designer.cs">
+      <DependentUpon>201812121359199_AppoinmentAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Appoinment.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\AppoinmentViewModel.cs" />
+    <Compile Include="ViewModel\DepartmentViewModel.cs" />
+    <Compile Include="ViewModel\DoctorViewModel.cs" />
+    <Compile Include="ViewModel\RoleViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminDesign\css\animate.css" />
+    <Content Include="AdminDesign\css\bootstrap.css" />
+    <Content Include="AdminDesign\css\custom.css" />
+    <Content Include="AdminDesign\css\export.css" />
+    <Content Include="AdminDesign\css\font-awesome.css" />
+    <Content Include="AdminDesign\css\graph.css" />
+    <Content Include="AdminDesign\css\jqcandlestick.css" />
+    <Content Include="AdminDesign\css\monthly.css" />
+    <Content Include="AdminDesign\css\owl.carousel.css" />
+    <Content Include="AdminDesign\css\SidebarNav.min.css" />
+    <Content Include="AdminDesign\css\style.css" />
+    <Content Include="AdminDesign\fonts\fontawesome-webfont.svg" />
+    <Content Include="AdminDesign\images\1.jpg" />
+    <Content Include="AdminDesign\images\2.jpg" />
+    <Content Include="AdminDesign\images\3.jpg" />
+    <Content Include="AdminDesign\images\4.jpg" />
+    <Content Include="AdminDesign\images\a.png" />
+    <Content Include="AdminDesign\images\i1.png" />
+    <Content Include="AdminDesign\images\i2.png" />
+    <Content Include="AdminDesign\images\i3.png" />
+    <Content Include="AdminDesign\images\i4.png" />
+    <Content Include="AdminDesign\images\img-sprite.png" />
+    <Content Include="AdminDesign\images\img1.png" />
+    <Content Include="AdminDesign\images\lock.png" />
+    <Content Include="AdminDesign\images\mail.png" />
+    <Content Include="AdminDesign\images\search-icon.png" />
+    <Content Include="AdminDesign\images\slider1.jpg" />
+    <Content Include="AdminDesign\images\slider2.jpg" />
+    <Content Include="AdminDesign\images\slider3.jpg" />
+    <Content Include="AdminDesign\images\slider4.jpg" />
+    <Content Include="AdminDesign\images\slider5.jpg" />
+    <Content Include="AdminDesign\images\slider6.jpg" />
+    <Content Include="AdminDesign\images\slider7.jpg" />
+    <Content Include="AdminDesign\images\tick.png" />
+    <Content Include="AdminDesign\images\user.png" />
+    <Content Include="AdminDesign\images\weather.jpg" />
+    <Content Include="AdminDesign\js\amcharts.js" />
+    <Content Include="AdminDesign\js\bootstrap.js" />
+    <Content Include="AdminDesign\js\Chart.bundle.js" />
+    <Content Include="AdminDesign\js\Chart.js" />
+    <Content Include="AdminDesign\js\Chart.min.js" />
+    <Content Include="AdminDesign\js\chartinator.js" />
+    <Content Include="AdminDesign\js\classie.js" />
+    <Content Include="AdminDesign\js\custom.js" />
+    <Content Include="AdminDesign\js\export.min.js" />
+    <Content Include="AdminDesign\js\images\dragIconRoundBig.svg" />
+    <Content Include="AdminDesign\js\images\lens.svg" />
+    <Content Include="AdminDesign\js\index.js" />
+    <Content Include="AdminDesign\js\index1.js" />
+    <Content Include="AdminDesign\js\index2.js" />
+    <Content Include="AdminDesign\js\jquery-1.11.1.min.js" />
+    <Content Include="AdminDesign\js\jquery.flot.js" />
+    <Content Include="AdminDesign\js\jquery.jqcandlestick.min.js" />
+    <Content Include="AdminDesign\js\jquery.nicescroll.js" />
+    <Content Include="AdminDesign\js\light.js" />
+    <Content Include="AdminDesign\js\metisMenu.min.js" />
+    <Content Include="AdminDesign\js\modernizr.custom.js" />
+    <Content Include="AdminDesign\js\monthly.js" />
+    <Content Include="AdminDesign\js\owl.carousel.js" />
+    <Content Include="AdminDesign\js\pie-chart.js" />
+    <Content Include="AdminDesign\js\scripts.js" />
+    <Content Include="AdminDesign\js\serial.js" />
+    <Content Include="AdminDesign\js\SidebarNav.min.js" />
+    <Content Include="AdminDesign\js\SimpleChart.js" />
+    <Content Include="AdminDesign\js\utils.js" />
+    <Content Include="AdminDesign\js\validator.min.js" />
+    <Content Include="ContactUs.html" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FrontEnd\css\bootstrap.css" />
+    <Content Include="FrontEnd\css\breadcrumb.css" />
+    <Content Include="FrontEnd\css\font-awesome.min.css" />
+    <Content Include="FrontEnd\css\style.css" />
+    <Content Include="FrontEnd\fonts\fontawesome-webfont.svg" />
+    <Content Include="FrontEnd\img\about-bg.jpg" />
+    <Content Include="FrontEnd\img\about-bg2.png" />
+    <Content Include="FrontEnd\img\banner\banner-2.jpg" />
+    <Content Include="FrontEnd\img\banner\banner-map.png" />
+    <Content Include="FrontEnd\img\banner\banner.jpg" />
+    <Content Include="FrontEnd\img\banner\home-banner.jpg" />
+    <Content Include="FrontEnd\img\blog\add.jpg" />
+    <Content Include="FrontEnd\img\blog\author.png" />
+    <Content Include="FrontEnd\img\blog\c1.jpg" />
+    <Content Include="FrontEnd\img\blog\c2.jpg" />
+    <Content Include="FrontEnd\img\blog\c3.jpg" />
+    <Content Include="FrontEnd\img\blog\c4.jpg" />
+    <Content Include="FrontEnd\img\blog\c5.jpg" />
+    <Content Include="FrontEnd\img\blog\c6.jpg" />
+    <Content Include="FrontEnd\img\blog\cat-post\cat-post-1.jpg" />
+    <Content Include="FrontEnd\img\blog\cat-post\cat-post-2.jpg" />
+    <Content Include="FrontEnd\img\blog\cat-post\cat-post-3.jpg" />
+    <Content Include="FrontEnd\img\blog\causes\causes-1.jpg" />
+    <Content Include="FrontEnd\img\blog\causes\causes-2.jpg" />
+    <Content Include="FrontEnd\img\blog\causes\causes-3.jpg" />
+    <Content Include="FrontEnd\img\blog\feature-img1.jpg" />
+    <Content Include="FrontEnd\img\blog\main-blog\m-blog-1.jpg" />
+    <Content Include="FrontEnd\img\blog\main-blog\m-blog-2.jpg" />
+    <Content Include="FrontEnd\img\blog\main-blog\m-blog-3.jpg" />
+    <Content Include="FrontEnd\img\blog\main-blog\m-blog-4.jpg" />
+    <Content Include="FrontEnd\img\blog\main-blog\m-blog-5.jpg" />
+    <Content Include="FrontEnd\img\blog\next.jpg" />
+    <Content Include="FrontEnd\img\blog\popular-post\post1.jpg" />
+    <Content Include="FrontEnd\img\blog\popular-post\post2.jpg" />
+    <Content Include="FrontEnd\img\blog\popular-post\post3.jpg" />
+    <Content Include="FrontEnd\img\blog\popular-post\post4.jpg" />
+    <Content Include="FrontEnd\img\blog\post-img1.jpg" />
+    <Content Include="FrontEnd\img\blog\post-img2.jpg" />
+    <Content Include="FrontEnd\img\blog\prev.jpg" />
+    <Content Include="FrontEnd\img\counter-bg.jpg" />
+    <Content Include="FrontEnd\img\department\d-icon1.png" />
+    <Content Include="FrontEnd\img\department\d-icon2.png" />
+    <Content Include="FrontEnd\img\department\d-icon3.png" />
+    <Content Include="FrontEnd\img\department\d-icon4.png" />
+    <Content Include="FrontEnd\img\department\d-icon5.png" />
+    <Content Include="FrontEnd\img\department\d-icon6.png" />
+    <Content Include="FrontEnd\img\elements\a.jpg" />
+    <Content Include="FrontEnd\img\elements\a2.jpg" />
+    <Content Include="FrontEnd\img\elements\d.jpg" />
+    <Content Include="FrontEnd\img\elements\disabled-check.png" />
+    <Content Include="FrontEnd\img\elements\disabled-radio.png" />
+    <Content Include="FrontEnd\img\elements\f1.jpg" />
+    <Content Include="FrontEnd\img\elements\f2.jpg" />
+    <Content Include="FrontEnd\img\elements\f3.jpg" />
+    <Content Include="FrontEnd\img\elements\f4.jpg" />
+    <Content Include="FrontEnd\img\elements\f5.jpg" />
+    <Content Include="FrontEnd\img\elements\f6.jpg" />
+    <Content Include="FrontEnd\img\elements\f7.jpg" />
+    <Content Include="FrontEnd\img\elements\f8.jpg" />
+    <Content Include="FrontEnd\img\elements\g1.jpg" />
+    <Content Include="FrontEnd\img\elements\g2.jpg" />
+    <Content Include="FrontEnd\img\elements\g3.jpg" />
+    <Content Include="FrontEnd\img\elements\g4.jpg" />
+    <Content Include="FrontEnd\img\elements\g5.jpg" />
+    <Content Include="FrontEnd\img\elements\g6.jpg" />
+    <Content Include="FrontEnd\img\elements\g7.jpg" />
+    <Content Include="FrontEnd\img\elements\g8.jpg" />
+    <Content Include="FrontEnd\img\elements\primary-check.png" />
+    <Content Include="FrontEnd\img\elements\primary-radio.png" />
+    <Content Include="FrontEnd\img\elements\success-check.png" />
+    <Content Include="FrontEnd\img\elements\success-radio.png" />
+    <Content Include="FrontEnd\img\elements\user1.png" />
+    <Content Include="FrontEnd\img\elements\user2.png" />
+    <Content Include="FrontEnd\img\favicon.png" />
+    <Content Include="FrontEnd\img\features\icon1.png" />
+    <Content Include="FrontEnd\img\features\icon2.png" />
+    <Content Include="FrontEnd\img\features\icon3.png" />
+    <Content Include="FrontEnd\img\footer-bg.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-01.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-02.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-03.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-04.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-05.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-06.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-07.jpg" />
+    <Content Include="FrontEnd\img\instagram\Image-08.jpg" />
+    <Content Include="FrontEnd\img\logo.png" />
+    <Content Include="FrontEnd\img\map-bg.png" />
+    <Content Include="FrontEnd\img\recent-blog\blog1.jpg" />
+    <Content Include="FrontEnd\img\recent-blog\blog2.jpg" />
+    <Content Include="FrontEnd\img\recent-blog\blog3.jpg" />
+    <Content Include="FrontEnd\img\team\member1.png" />
+    <Content Include="FrontEnd\img\team\member2.png" />
+    <Content Include="FrontEnd\img\team\member3.png" />
+    <Content Include="FrontEnd\img\team\member4.png" />
+    <Content Include="FrontEnd\js\bootstrap.min.js" />
+    <Content Include="FrontEnd\js\contact.js" />
+    <Content Include="FrontEnd\js\gmaps.min.js" />
+    <Content Include="FrontEnd\js\jquery-3.2.1.min.js" />
+    <Content Include="FrontEnd\js\jquery.ajaxchimp.min.js" />
+    <Content Include="FrontEnd\js\jquery.form.js" />
+    <Content Include="FrontEnd\js\jquery.validate.min.js" />
+    <Content Include="FrontEnd\js\mail-script.js" />
+    <Content Include="FrontEnd\js\popper.js" />
+    <Content Include="FrontEnd\js\stellar.js" />
+    <Content Include="FrontEnd\js\theme.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\css\font-awesome.min.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\css\main.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\css\normalize.min.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\fonts\fontawesome-webfont.svg" />
+    <Content Include="FrontEnd\Medicare Medical-doc\img\logo.png" />
+    <Content Include="FrontEnd\Medicare Medical-doc\index.html" />
+    <Content Include="FrontEnd\Medicare Medical-doc\js\custom.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\js\jquery-1.11.0.min.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\js\jquery.nav.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shAutoloader.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushAS3.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushBash.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushCpp.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushCSharp.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushCss.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushDelphi.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushDiff.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushErlang.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushGroovy.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushJava.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushJScript.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushPerl.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushPhp.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushPlain.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushPython.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushRuby.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushSass.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushScala.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushSql.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushVb.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shBrushXml.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shCore.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\scripts\shLegacy.js" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCore.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreDefault.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreDjango.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreEclipse.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreEmacs.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreMDUltra.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreMidnight.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shCoreRDark.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeDefault.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeDjango.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeEclipse.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeEmacs.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeMDUltra.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeMidnight.css" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="FrontEnd\vendors\animate-css\animate.css" />
+    <Content Include="FrontEnd\vendors\animate-css\wow.min.js" />
+    <Content Include="FrontEnd\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="FrontEnd\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="FrontEnd\vendors\bootstrap-datepicker\bootstrap-select.css" />
+    <Content Include="FrontEnd\vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <Content Include="FrontEnd\vendors\counter-up\jquery.counterup.js" />
+    <Content Include="FrontEnd\vendors\counter-up\jquery.waypoints.min.js" />
+    <Content Include="FrontEnd\vendors\flipclock\timer.js" />
+    <Content Include="FrontEnd\vendors\isotope\imagesloaded.pkgd.min.js" />
+    <Content Include="FrontEnd\vendors\isotope\isotope-min.js" />
+    <Content Include="FrontEnd\vendors\jquery-ui\jquery-ui.css" />
+    <Content Include="FrontEnd\vendors\jquery-ui\jquery-ui.js" />
+    <Content Include="FrontEnd\vendors\lightbox\simpleLightbox.css" />
+    <Content Include="FrontEnd\vendors\lightbox\simpleLightbox.min.js" />
+    <Content Include="FrontEnd\vendors\linericon\fonts\Linearicons-Free.svg" />
+    <Content Include="FrontEnd\vendors\linericon\style.css" />
+    <Content Include="FrontEnd\vendors\nice-select\css\nice-select.css" />
+    <Content Include="FrontEnd\vendors\nice-select\css\style.css" />
+    <Content Include="FrontEnd\vendors\nice-select\js\jquery.nice-select.js" />
+    <Content Include="FrontEnd\vendors\nice-select\js\jquery.nice-select.min.js" />
+    <Content Include="FrontEnd\vendors\owl-carousel\assets\ajax-loader.gif" />
+    <Content Include="FrontEnd\vendors\owl-carousel\assets\animated.css" />
+    <Content Include="FrontEnd\vendors\owl-carousel\assets\owl.carousel.css" />
+    <Content Include="FrontEnd\vendors\owl-carousel\owl.carousel.min.css" />
+    <Content Include="FrontEnd\vendors\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="AboutUs.html" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="AdminDesign\fonts\fontawesome-webfont.eot" />
+    <Content Include="AdminDesign\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AdminDesign\fonts\fontawesome-webfont.woff" />
+    <Content Include="AdminDesign\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AdminDesign\fonts\FontAwesome.otf" />
+    <Content Include="AdminDesign\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="AdminDesign\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="AdminDesign\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="AdminDesign\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="FrontEnd\css\.DS_Store" />
+    <Content Include="FrontEnd\css\style.css.map" />
+    <Content Include="FrontEnd\fonts\fontawesome-webfont.eot" />
+    <Content Include="FrontEnd\fonts\fontawesome-webfont.ttf" />
+    <Content Include="FrontEnd\fonts\fontawesome-webfont.woff" />
+    <Content Include="FrontEnd\fonts\fontawesome-webfont.woff2" />
+    <Content Include="FrontEnd\fonts\FontAwesome.otf" />
+    <Content Include="FrontEnd\img\elements\_DS_Store" />
+    <Content Include="FrontEnd\Medicare Medical-doc\.DS_Store" />
+    <Content Include="FrontEnd\Medicare Medical-doc\css\_DS_Store" />
+    <Content Include="FrontEnd\Medicare Medical-doc\fonts\fontawesome-webfont.eot" />
+    <Content Include="FrontEnd\Medicare Medical-doc\fonts\fontawesome-webfont.ttf" />
+    <Content Include="FrontEnd\Medicare Medical-doc\fonts\fontawesome-webfont.woff" />
+    <Content Include="FrontEnd\Medicare Medical-doc\fonts\FontAwesome.otf" />
+    <Content Include="FrontEnd\Medicare Medical-doc\fonts\_DS_Store" />
+    <Content Include="FrontEnd\Medicare Medical-doc\js\_DS_Store" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\.DS_Store" />
+    <Content Include="FrontEnd\Medicare Medical-doc\syntax-highlighter\_DS_Store" />
+    <Content Include="FrontEnd\Medicare Medical-doc\_DS_Store" />
+    <Content Include="FrontEnd\scss\style.scss" />
+    <Content Include="FrontEnd\scss\_banner.scss" />
+    <Content Include="FrontEnd\scss\_blog.scss" />
+    <Content Include="FrontEnd\scss\_button.scss" />
+    <Content Include="FrontEnd\scss\_contact.scss" />
+    <Content Include="FrontEnd\scss\_elements.scss" />
+    <Content Include="FrontEnd\scss\_footer.scss" />
+    <Content Include="FrontEnd\scss\_header.scss" />
+    <Content Include="FrontEnd\scss\_home.scss" />
+    <Content Include="FrontEnd\scss\_mixins.scss" />
+    <Content Include="FrontEnd\scss\_predefine.scss" />
+    <Content Include="FrontEnd\scss\_reset.scss" />
+    <Content Include="FrontEnd\scss\_responsive.scss" />
+    <Content Include="FrontEnd\scss\_variables.scss" />
+    <Content Include="FrontEnd\vendors\linericon\fonts\Linearicons-Free.eot" />
+    <Content Include="FrontEnd\vendors\linericon\fonts\Linearicons-Free.ttf" />
+    <Content Include="FrontEnd\vendors\linericon\fonts\Linearicons-Free.woff" />
+    <Content Include="FrontEnd\vendors\linericon\fonts\Linearicons-Free.woff2" />
+    <None Include="Properties\PublishProfiles\medicare.pubxml" />
+    <None Include="Scripts\jquery-2.2.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.4.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Doctor\Create.cshtml" />
+    <Content Include="Views\Doctor\Edit.cshtml" />
+    <Content Include="Views\Doctor\Details.cshtml" />
+    <Content Include="Views\Doctor\Index.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Department.cshtml" />
+    <Content Include="Views\Home\Doctor.cshtml" />
+    <Content Include="Views\Home\Appointment.cshtml" />
+    <Content Include="Views\Shared\_PartialAppoinment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\DepartmentImages\" />
+    <Folder Include="Images\DoctorImages\" />
+    <Folder Include="Images\PostImages\" />
+    <Folder Include="Images\UserImage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812101820413_IdentityAndDepartment.resx">
+      <DependentUpon>201812101820413_IdentityAndDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812110904475_DoctorAdded.resx">
+      <DependentUpon>201812110904475_DoctorAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111126109_UsersTableEdited.resx">
+      <DependentUpon>201812111126109_UsersTableEdited.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111834062_DoctorTableTitlefielAdedd.resx">
+      <DependentUpon>201812111834062_DoctorTableTitlefielAdedd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812121359199_AppoinmentAdded.resx">
+      <DependentUpon>201812121359199_AppoinmentAdded.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5743</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5743/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

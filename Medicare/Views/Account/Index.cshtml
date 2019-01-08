@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Medicare.ViewModel.UserViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int sl = 1;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Register", "Register")
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>SL</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @(sl++)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            <img src="@Url.Content("~/Images/UserImage/" + item.FilePath)" width="100px;"/>
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Are You Sure You Want To Delete!!')" })
+        </td>
+    </tr>
+}
+
+</table>
